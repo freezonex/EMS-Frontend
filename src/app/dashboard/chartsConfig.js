@@ -128,7 +128,7 @@ export const areaChartData = [
 ];
 
 export const areaChartOptions = {
-  title: 'Energy Balance',
+  // title: 'Energy Balance',
   axes: {
     bottom: {
       mapsTo: 'date',
@@ -142,6 +142,9 @@ export const areaChartOptions = {
       mapsTo: 'value',
       scaleType: 'linear',
     },
+  },
+  toolbar: {
+    enabled: false,
   },
   color: {
     scale: {
@@ -272,7 +275,7 @@ export const stackedBarData = [
 ];
 
 export const stackedBarOptions = {
-  title: 'Alarms',
+  // title: 'Alarms',
   axes: {
     left: {
       mapsTo: 'value',
@@ -285,6 +288,9 @@ export const stackedBarOptions = {
         formatter: (date) => timeFormat('%d/%m')(new Date(date)),
       },
     },
+  },
+  toolbar: {
+    enabled: false,
   },
   color: {
     scale: {
@@ -325,9 +331,9 @@ export const lineChartOptions = {
     },
   },
   curve: 'curveNatural',
-  height: '260px',
+  height: '280px',
   legend: {
-    position: 'top',
+    position: 'bottom',
   },
   tooltip: {
     enabled: true,

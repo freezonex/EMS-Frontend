@@ -22,7 +22,7 @@ import {
   stackedBarOptions,
   lineChartData,
   lineChartOptions,
-} from './barchart';
+} from './chartsConfig';
 import {
   Select,
   SelectTrigger,
@@ -31,6 +31,8 @@ import {
   SelectItem,
 } from '@/components/ui/select';
 import InsightsTable from '@/components/Dashboard/InsightsTable';
+import AlarmList from './alarm';
+
 const headers = [
   { key: 'no', header: 'No' },
   { key: 'workshop', header: 'Workshop' },
@@ -74,7 +76,7 @@ function Page() {
       <div className="flex mt-8 items-start gap-4 h-[446px]">
         <div className="flex flex-col w-3/4 justify-between min-h-[446px] max-h-[446px]">
           <div class="grid grid-cols-3 gap-4">
-            <SimpleCard label="Total" value="5967" unit="tce" />
+            <SimpleCard eCard label="Total" value="5967" unit="tce" />
             <SimpleCard label="Goal" value="2031" unit="tce" />
             <SimpleCard label="Challenge" value="4560" unit="tce" />
           </div>
@@ -109,6 +111,27 @@ function Page() {
         </div>
       </div>
       <div className="mt-6 w-full bg-white p-4 shadow rounded-lg flex flex-col ">
+        <div className="flex justify-between mb-4 mt-2">
+          <Heading className="text-[16px] not-italic font-semibold leading-[18px] tracking-0.16">
+            Energy Balance
+          </Heading>
+          <Select>
+            <SelectTrigger className="text-xs w-[110px] h-[23px] bg-[#F4F4F4] border-none">
+              <SelectValue placeholder="Energy Type" />
+            </SelectTrigger>
+            <SelectContent className="bg-white">
+              <SelectItem className="text-xs" value="light">
+                Electricity
+              </SelectItem>
+              <SelectItem className="text-xs" value="dark">
+                Water
+              </SelectItem>
+              <SelectItem className="text-xs" value="system">
+                Coal
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
         <AreaChart data={areaChartData} options={areaChartOptions} />
       </div>
       <div className="grid grid-cols-3 mt-6 flex w-full gap-4">
@@ -116,9 +139,41 @@ function Page() {
           <PieChart data={pieChartData} options={pieChartOptions} />
         </div>
         <div className="shrink  bg-white p-4 shadow rounded-lg">
+          <div className="flex justify-between mb-4 mt-2">
+            <Heading className="text-[16px] not-italic font-semibold leading-[18px] tracking-0.16">
+              Alarms
+            </Heading>
+            <Select>
+              <SelectTrigger className="text-xs w-[100px] h-[23px] bg-[#F4F4F4] border-none">
+                <SelectValue placeholder="Workshop" />
+              </SelectTrigger>
+              <SelectContent className="bg-white">
+                <SelectItem className="text-xs" value="light">
+                  Workshop 1
+                </SelectItem>
+                <SelectItem className="text-xs" value="dark">
+                  Workshop 2
+                </SelectItem>
+                <SelectItem className="text-xs" value="system">
+                  Workshop 3
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           <StackedBarChart data={stackedBarData} options={stackedBarOptions} />
         </div>
         <div className="shrink  bg-white p-4 shadow rounded-lg">
+          {/* <LineChart data={lineChartData} options={lineChartOptions} /> */}
+          <div className="flex justify-between mb-4 mt-2">
+            <Heading className="text-[16px] not-italic font-semibold leading-[18px] tracking-0.16">
+              Alarms
+            </Heading>
+          </div>
+          <AlarmList />
+        </div>
+      </div>
+      <div className="grid grid-cols-2 mt-6 flex gap-4">
+        <div className="shrink bg-white p-4 shadow rounded-lg ">
           <LineChart data={lineChartData} options={lineChartOptions} />
         </div>
       </div>

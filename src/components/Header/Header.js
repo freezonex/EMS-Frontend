@@ -83,10 +83,10 @@ export const HeaderWSideNav = ({ isExpanded, toggleSideNavExpanded }) => {
               isSideNavExpanded={isExpanded}
               renderIcon={IbmAiopsInsights}
               onClick={() => {
-                router.push(`${process.env.PATH_PREFIX}/warehouse/material`);
+                router.push(`${process.env.PATH_PREFIX}/insights`);
               }}
               className="cursor-pointer"
-              isActive={isCurrentPath('/warehouse/material')}
+              isActive={isCurrentPath('/insights')}
             >
               Insights
             </SideNavLink>
@@ -94,10 +94,10 @@ export const HeaderWSideNav = ({ isExpanded, toggleSideNavExpanded }) => {
               isSideNavExpanded={isExpanded}
               renderIcon={Subflow}
               onClick={() => {
-                router.push(`${process.env.PATH_PREFIX}/operation/inbound`);
+                router.push(`${process.env.PATH_PREFIX}/consumption`);
               }}
               className="cursor-pointer"
-              isActive={isCurrentPath('/operation/inbound')}
+              isActive={isCurrentPath('/consumption')}
             >
               Energy Consumption
             </SideNavLink>
@@ -105,7 +105,7 @@ export const HeaderWSideNav = ({ isExpanded, toggleSideNavExpanded }) => {
               isSideNavExpanded={isExpanded}
               renderIcon={AlignHorizontalCenter}
               onClick={() => {
-                router.push(`${process.env.PATH_PREFIX}/operation/outbound`);
+                router.push(`${process.env.PATH_PREFIX}/efficiency`);
               }}
               className="cursor-pointer"
               isActive={isCurrentPath('/operation/outbound')}
@@ -117,10 +117,10 @@ export const HeaderWSideNav = ({ isExpanded, toggleSideNavExpanded }) => {
               isSideNavExpanded={isExpanded}
               renderIcon={LoadBalancerVpc}
               onClick={() => {
-                router.push(`${process.env.PATH_PREFIX}/operation/stocktaking`);
+                router.push(`${process.env.PATH_PREFIX}/balance`);
               }}
               className="cursor-pointer"
-              isActive={isCurrentPath('/operation/stocktaking')}
+              isActive={isCurrentPath('/balance')}
             >
               Energy Balance
             </SideNavLink>
@@ -128,10 +128,10 @@ export const HeaderWSideNav = ({ isExpanded, toggleSideNavExpanded }) => {
               isSideNavExpanded={isExpanded}
               renderIcon={Alarm}
               onClick={() => {
-                router.push(`${process.env.PATH_PREFIX}/operation/task`);
+                router.push(`${process.env.PATH_PREFIX}/alarm`);
               }}
               className="cursor-pointer"
-              isActive={isCurrentPath('/operation/task')}
+              isActive={isCurrentPath('/alarm')}
             >
               Alarm
             </SideNavLink>
@@ -139,12 +139,10 @@ export const HeaderWSideNav = ({ isExpanded, toggleSideNavExpanded }) => {
               isSideNavExpanded={isExpanded}
               renderIcon={Cicsplex}
               onClick={() => {
-                router.push(
-                  `${process.env.PATH_PREFIX}/operation/task/resource`
-                );
+                router.push(`${process.env.PATH_PREFIX}/simulation`);
               }}
               className="cursor-pointer"
-              isActive={isCurrentPath('/operation/task/resource')}
+              isActive={isCurrentPath('/simulation')}
             >
               Simulation
             </SideNavLink>
